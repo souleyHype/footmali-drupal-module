@@ -272,9 +272,8 @@ function footmali_core_views_default_views() {
   $handler->display->display_options['header']['area_text_custom']['id'] = 'area_text_custom';
   $handler->display->display_options['header']['area_text_custom']['table'] = 'views';
   $handler->display->display_options['header']['area_text_custom']['field'] = 'area_text_custom';
-  $handler->display->display_options['header']['area_text_custom']['content'] = '<article id="jquery_ajax_load_target" class="entry-item video-post">
-video player
-</article>';
+  $handler->display->display_options['header']['area_text_custom']['label'] = 'Video Player';
+  $handler->display->display_options['header']['area_text_custom']['content'] = '<article id="jquery_ajax_load_target" class="entry-item video-post"></article>';
   /* Field: Content: Video */
   $handler->display->display_options['fields']['field_video']['id'] = 'field_video';
   $handler->display->display_options['fields']['field_video']['table'] = 'field_data_field_video';
@@ -342,9 +341,8 @@ video player
     t('‹ previous'),
     t('next ›'),
     t('last »'),
-    t('<article id="jquery_ajax_load_target" class="entry-item video-post">
-video player
-</article>'),
+    t('Video Player'),
+    t('<article id="jquery_ajax_load_target" class="entry-item video-post"></article>'),
     t('Title'),
     t('Body'),
     t('Page'),

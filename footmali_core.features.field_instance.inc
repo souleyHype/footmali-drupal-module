@@ -924,6 +924,65 @@ function footmali_core_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance: 'node-player-field_dob'
+  $field_instances['node-player-field_dob'] = array(
+    'bundle' => 'player',
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'date',
+        'settings' => array(
+          'format_type' => 'long',
+          'fromto' => 'both',
+          'multiple_from' => '',
+          'multiple_number' => '',
+          'multiple_to' => '',
+        ),
+        'type' => 'date_default',
+        'weight' => 7,
+      ),
+      'jquery_ajax_load' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_dob',
+    'label' => 'Date Naissance',
+    'required' => 0,
+    'settings' => array(
+      'default_value' => 'now',
+      'default_value2' => 'same',
+      'default_value_code' => '',
+      'default_value_code2' => '',
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'date',
+      'settings' => array(
+        'increment' => 15,
+        'input_format' => 'm/d/Y - H:i:s',
+        'input_format_custom' => '',
+        'label_position' => 'above',
+        'text_parts' => array(),
+        'year_range' => '-3:+3',
+      ),
+      'type' => 'date_text',
+      'weight' => 3,
+    ),
+  );
+
   // Exported field_instance: 'node-player-field_height'
   $field_instances['node-player-field_height'] = array(
     'bundle' => 'player',
@@ -937,11 +996,11 @@ function footmali_core_field_default_field_instances() {
         'settings' => array(
           'decimal_separator' => '.',
           'prefix_suffix' => TRUE,
-          'scale' => 0,
+          'scale' => 2,
           'thousand_separator' => ' ',
         ),
-        'type' => 'number_integer',
-        'weight' => 4,
+        'type' => 'number_decimal',
+        'weight' => 8,
       ),
       'jquery_ajax_load' => array(
         'label' => 'above',
@@ -964,7 +1023,7 @@ function footmali_core_field_default_field_instances() {
       'max' => '',
       'min' => '',
       'prefix' => '',
-      'suffix' => 'cm',
+      'suffix' => '',
       'user_register_form' => FALSE,
     ),
     'widget' => array(
@@ -972,7 +1031,7 @@ function footmali_core_field_default_field_instances() {
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
-      'weight' => 3,
+      'weight' => 4,
     ),
   );
 
@@ -1075,7 +1134,7 @@ function footmali_core_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'node_reference_autocomplete',
-      'weight' => 6,
+      'weight' => 7,
     ),
   );
 
@@ -1118,7 +1177,7 @@ function footmali_core_field_default_field_instances() {
       'module' => 'options',
       'settings' => array(),
       'type' => 'options_select',
-      'weight' => 5,
+      'weight' => 6,
     ),
   );
 
@@ -1170,7 +1229,7 @@ function footmali_core_field_default_field_instances() {
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
-      'weight' => 4,
+      'weight' => 5,
     ),
   );
 
@@ -1720,6 +1779,7 @@ function footmali_core_field_default_field_instances() {
   t('Catégorie');
   t('Competition Round');
   t('Compétition');
+  t('Date Naissance');
   t('Date et L\'heure');
   t('Image');
   t('Image De Profil');

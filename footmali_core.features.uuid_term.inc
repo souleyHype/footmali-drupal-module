@@ -28,7 +28,12 @@ function footmali_core_uuid_features_default_terms() {
       0 => '0c16063a-841a-44c9-984d-721d8579bee1',
       1 => '0c16063a-841a-44c9-984d-721d8579bee1',
     ),
-    'url_alias' => array(),
+    'url_alias' => array(
+      0 => array(
+        'alias' => 'compétitions/league-1',
+        'language' => 'und',
+      ),
+    ),
   );
   $terms[] = array(
     'name' => 'Coupe de la Confédération',
@@ -65,7 +70,12 @@ function footmali_core_uuid_features_default_terms() {
         ),
       ),
     ),
-    'url_alias' => array(),
+    'url_alias' => array(
+      0 => array(
+        'alias' => 'compétitions/championat-du-mali',
+        'language' => 'und',
+      ),
+    ),
   );
   $terms[] = array(
     'name' => 'Championnat D\'Afrique U-17',
@@ -199,7 +209,12 @@ function footmali_core_uuid_features_default_terms() {
     'weight' => 0,
     'uuid' => '5648d55f-1221-4ada-9815-bcbc82179cb8',
     'vocabulary_machine_name' => 'tags',
-    'url_alias' => array(),
+    'url_alias' => array(
+      0 => array(
+        'alias' => 'étiquettes/les-aigles',
+        'language' => 'und',
+      ),
+    ),
   );
   $terms[] = array(
     'name' => 'Journée 2',
@@ -377,7 +392,12 @@ function footmali_core_uuid_features_default_terms() {
         ),
       ),
     ),
-    'url_alias' => array(),
+    'url_alias' => array(
+      0 => array(
+        'alias' => 'compétitions/coupe-du-monde',
+        'language' => 'und',
+      ),
+    ),
   );
   $terms[] = array(
     'name' => 'Matches De Groupes',
@@ -476,7 +496,12 @@ function footmali_core_uuid_features_default_terms() {
       0 => '0c16063a-841a-44c9-984d-721d8579bee1',
       1 => '0c16063a-841a-44c9-984d-721d8579bee1',
     ),
-    'url_alias' => array(),
+    'url_alias' => array(
+      0 => array(
+        'alias' => 'compétitions/league-2',
+        'language' => 'und',
+      ),
+    ),
   );
   $terms[] = array(
     'name' => 'Championat du Mali',
@@ -541,7 +566,12 @@ function footmali_core_uuid_features_default_terms() {
         ),
       ),
     ),
-    'url_alias' => array(),
+    'url_alias' => array(
+      0 => array(
+        'alias' => 'compétitions/coupe-dafrique-des-nations',
+        'language' => 'und',
+      ),
+    ),
   );
   $terms[] = array(
     'name' => 'Jeux Africains Hommes',

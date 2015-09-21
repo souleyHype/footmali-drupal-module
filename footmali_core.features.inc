@@ -71,6 +71,36 @@ function footmali_core_image_default_styles() {
     ),
   );
 
+  // Exported image style: content_carrousel_large.
+  $styles['content_carrousel_large'] = array(
+    'label' => 'Content Carrousel Large',
+    'effects' => array(
+      10 => array(
+        'name' => 'image_scale_and_crop',
+        'data' => array(
+          'width' => 770,
+          'height' => 469,
+        ),
+        'weight' => 1,
+      ),
+    ),
+  );
+
+  // Exported image style: content_carrousel_thumb.
+  $styles['content_carrousel_thumb'] = array(
+    'label' => 'Content Carrousel Thumb',
+    'effects' => array(
+      11 => array(
+        'name' => 'image_scale_and_crop',
+        'data' => array(
+          'width' => 175,
+          'height' => 110,
+        ),
+        'weight' => 1,
+      ),
+    ),
+  );
+
   // Exported image style: fixture_result_team_logo.
   $styles['fixture_result_team_logo'] = array(
     'label' => 'Fixture & Result Team Logo ',

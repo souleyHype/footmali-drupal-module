@@ -138,11 +138,6 @@ function footmali_core_views_default_views() {
   /* Display: All Articles */
   $handler = $view->new_display('page', 'All Articles', 'all_articles');
   $handler->display->display_options['path'] = 'actu';
-  $handler->display->display_options['menu']['title'] = 'L\'actualité';
-  $handler->display->display_options['menu']['weight'] = '1';
-  $handler->display->display_options['menu']['name'] = 'main-menu';
-  $handler->display->display_options['menu']['context'] = 0;
-  $handler->display->display_options['menu']['context_only_inline'] = 0;
 
   /* Display: Most Read Articles */
   $handler = $view->new_display('block', 'Most Read Articles', 'most_read_articles');
@@ -270,11 +265,6 @@ function footmali_core_views_default_views() {
   $handler->display->display_options['filters']['field_category_tid']['vocabulary'] = 'category';
   $handler->display->display_options['filters']['field_category_tid']['hierarchy'] = 1;
   $handler->display->display_options['path'] = 'league1';
-  $handler->display->display_options['menu']['title'] = 'Championnat';
-  $handler->display->display_options['menu']['weight'] = '0';
-  $handler->display->display_options['menu']['name'] = 'main-menu';
-  $handler->display->display_options['menu']['context'] = 0;
-  $handler->display->display_options['menu']['context_only_inline'] = 0;
   $translatables['news'] = array(
     t('Master'),
     t('L\'actualité'),
@@ -377,11 +367,6 @@ function footmali_core_views_default_views() {
   $handler->display->display_options['sorts']['created']['field'] = 'created';
   $handler->display->display_options['sorts']['created']['order'] = 'DESC';
   $handler->display->display_options['path'] = 'video/%';
-  $handler->display->display_options['menu']['title'] = 'Vidéo';
-  $handler->display->display_options['menu']['weight'] = '0';
-  $handler->display->display_options['menu']['name'] = 'main-menu';
-  $handler->display->display_options['menu']['context'] = 0;
-  $handler->display->display_options['menu']['context_only_inline'] = 0;
 
   /* Display: Attachment */
   $handler = $view->new_display('attachment', 'Attachment', 'video_player');

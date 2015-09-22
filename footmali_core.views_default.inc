@@ -76,7 +76,7 @@ function footmali_core_views_default_views() {
   $handler->display->display_options['fields']['body']['settings'] = array(
     'trim_length' => '140',
   );
-  /* Field: Content: Logo */
+  /* Field: Content: Image De Profil */
   $handler->display->display_options['fields']['field_image']['id'] = 'field_image';
   $handler->display->display_options['fields']['field_image']['table'] = 'field_data_field_image';
   $handler->display->display_options['fields']['field_image']['field'] = 'field_image';
@@ -138,7 +138,6 @@ function footmali_core_views_default_views() {
   /* Display: All Articles */
   $handler = $view->new_display('page', 'All Articles', 'all_articles');
   $handler->display->display_options['path'] = 'actu';
-  $handler->display->display_options['menu']['type'] = 'normal';
   $handler->display->display_options['menu']['title'] = 'L\'actualité';
   $handler->display->display_options['menu']['weight'] = '1';
   $handler->display->display_options['menu']['name'] = 'main-menu';
@@ -271,7 +270,6 @@ function footmali_core_views_default_views() {
   $handler->display->display_options['filters']['field_category_tid']['vocabulary'] = 'category';
   $handler->display->display_options['filters']['field_category_tid']['hierarchy'] = 1;
   $handler->display->display_options['path'] = 'league1';
-  $handler->display->display_options['menu']['type'] = 'normal';
   $handler->display->display_options['menu']['title'] = 'Championnat';
   $handler->display->display_options['menu']['weight'] = '0';
   $handler->display->display_options['menu']['name'] = 'main-menu';
@@ -379,7 +377,6 @@ function footmali_core_views_default_views() {
   $handler->display->display_options['sorts']['created']['field'] = 'created';
   $handler->display->display_options['sorts']['created']['order'] = 'DESC';
   $handler->display->display_options['path'] = 'video/%';
-  $handler->display->display_options['menu']['type'] = 'normal';
   $handler->display->display_options['menu']['title'] = 'Vidéo';
   $handler->display->display_options['menu']['weight'] = '0';
   $handler->display->display_options['menu']['name'] = 'main-menu';
@@ -421,13 +418,20 @@ function footmali_core_views_default_views() {
     'video_style' => 'normal',
   );
   $handler->display->display_options['defaults']['sorts'] = FALSE;
+  /* Sort criterion: Content: Post date */
+  $handler->display->display_options['sorts']['created']['id'] = 'created';
+  $handler->display->display_options['sorts']['created']['table'] = 'node';
+  $handler->display->display_options['sorts']['created']['field'] = 'created';
+  $handler->display->display_options['sorts']['created']['order'] = 'DESC';
   $handler->display->display_options['defaults']['arguments'] = FALSE;
   /* Contextual filter: Content: Nid */
   $handler->display->display_options['arguments']['nid']['id'] = 'nid';
   $handler->display->display_options['arguments']['nid']['table'] = 'node';
   $handler->display->display_options['arguments']['nid']['field'] = 'nid';
-  $handler->display->display_options['arguments']['nid']['default_action'] = 'not found';
-  $handler->display->display_options['arguments']['nid']['default_argument_type'] = 'fixed';
+  $handler->display->display_options['arguments']['nid']['exception']['value'] = 'index';
+  $handler->display->display_options['arguments']['nid']['breadcrumb_enable'] = TRUE;
+  $handler->display->display_options['arguments']['nid']['breadcrumb'] = '%1';
+  $handler->display->display_options['arguments']['nid']['default_argument_type'] = 'php';
   $handler->display->display_options['arguments']['nid']['summary']['number_of_records'] = '0';
   $handler->display->display_options['arguments']['nid']['summary']['format'] = 'default_summary';
   $handler->display->display_options['arguments']['nid']['summary_options']['items_per_page'] = '25';
@@ -456,6 +460,7 @@ function footmali_core_views_default_views() {
     t('Attachment'),
     t('<h2>%1</h2>'),
     t('All'),
+    t('%1'),
   );
   $export['videos'] = $view;
 

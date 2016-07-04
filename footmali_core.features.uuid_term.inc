@@ -14,7 +14,7 @@ function footmali_core_uuid_features_default_terms() {
     'name' => 'League 1',
     'description' => '',
     'format' => 'filtered_html',
-    'weight' => 0,
+    'weight' => 1,
     'uuid' => '096b5350-6532-4495-b89d-56a7dcc4b06f',
     'vocabulary_machine_name' => 'competitions',
     'field_country' => array(
@@ -24,22 +24,21 @@ function footmali_core_uuid_features_default_terms() {
         ),
       ),
     ),
-    'parent' => array(
-      0 => '0c16063a-841a-44c9-984d-721d8579bee1',
-      1 => '0c16063a-841a-44c9-984d-721d8579bee1',
-    ),
     'url_alias' => array(
       0 => array(
         'alias' => 'compétitions/league-1',
         'language' => 'und',
       ),
     ),
+    'parent' => array(
+      0 => '0c16063a-841a-44c9-984d-721d8579bee1',
+    ),
   );
   $terms[] = array(
     'name' => 'Coupe de la Confédération',
     'description' => '',
     'format' => 'filtered_html',
-    'weight' => 0,
+    'weight' => 13,
     'uuid' => '0b8c1a25-20fd-4694-8fbf-e3c60de75c5e',
     'vocabulary_machine_name' => 'competitions',
     'field_country' => array(
@@ -60,7 +59,7 @@ function footmali_core_uuid_features_default_terms() {
     'name' => 'Championat du Mali',
     'description' => '',
     'format' => 'filtered_html',
-    'weight' => 0,
+    'weight' => 15,
     'uuid' => '0c16063a-841a-44c9-984d-721d8579bee1',
     'vocabulary_machine_name' => 'competitions',
     'field_country' => array(
@@ -81,7 +80,7 @@ function footmali_core_uuid_features_default_terms() {
     'name' => 'Championnat D\'Afrique U-17',
     'description' => '',
     'format' => 'filtered_html',
-    'weight' => 0,
+    'weight' => 10,
     'uuid' => '16a72489-ddb1-4d37-a16d-ca562529c800',
     'vocabulary_machine_name' => 'competitions',
     'field_country' => array(
@@ -120,15 +119,14 @@ function footmali_core_uuid_features_default_terms() {
     'weight' => 2,
     'uuid' => '3b4a3021-8889-41c4-94d8-214ee45a544e',
     'vocabulary_machine_name' => 'category',
-    'parent' => array(
-      0 => '8e57f774-51ed-4cca-a657-fcf53219981a',
-      1 => '8e57f774-51ed-4cca-a657-fcf53219981a',
-    ),
     'url_alias' => array(
       0 => array(
         'alias' => 'catégorie/les-aiglons-u17',
         'language' => 'und',
       ),
+    ),
+    'parent' => array(
+      0 => '8e57f774-51ed-4cca-a657-fcf53219981a',
     ),
   );
   $terms[] = array(
@@ -138,22 +136,21 @@ function footmali_core_uuid_features_default_terms() {
     'weight' => 0,
     'uuid' => '450432e7-007b-4033-9cce-c1ee46c1099a',
     'vocabulary_machine_name' => 'category',
-    'parent' => array(
-      0 => '8e57f774-51ed-4cca-a657-fcf53219981a',
-      1 => '8e57f774-51ed-4cca-a657-fcf53219981a',
-    ),
     'url_alias' => array(
       0 => array(
         'alias' => 'catégorie/les-aiglons-u23',
         'language' => 'und',
       ),
     ),
+    'parent' => array(
+      0 => '8e57f774-51ed-4cca-a657-fcf53219981a',
+    ),
   );
   $terms[] = array(
     'name' => 'Ligue des Champions',
     'description' => '',
     'format' => 'filtered_html',
-    'weight' => 0,
+    'weight' => 7,
     'uuid' => '469389f4-8712-4679-88b9-517f62e23ec8',
     'vocabulary_machine_name' => 'competitions',
     'field_country' => array(
@@ -191,15 +188,14 @@ function footmali_core_uuid_features_default_terms() {
     'weight' => 1,
     'uuid' => '53229803-045b-4d13-9ad9-bb4bae6dfaa2',
     'vocabulary_machine_name' => 'category',
-    'parent' => array(
-      0 => '8e57f774-51ed-4cca-a657-fcf53219981a',
-      1 => '8e57f774-51ed-4cca-a657-fcf53219981a',
-    ),
     'url_alias' => array(
       0 => array(
         'alias' => 'catégorie/les-aiglons-u20',
         'language' => 'und',
       ),
+    ),
+    'parent' => array(
+      0 => '8e57f774-51ed-4cca-a657-fcf53219981a',
     ),
   );
   $terms[] = array(
@@ -226,12 +222,18 @@ function footmali_core_uuid_features_default_terms() {
     'field_competition' => array(
       'und' => array(
         0 => array(
-          'target_id' => '096b5350-6532-4495-b89d-56a7dcc4b06f',
+          'target_id' => 'f58148f3-1b12-4a0e-bc7f-a92c16c2a2c4',
         ),
         1 => array(
+          'target_id' => '096b5350-6532-4495-b89d-56a7dcc4b06f',
+        ),
+        2 => array(
           'target_id' => 'd41653e4-7370-4c26-a295-848cd4532435',
         ),
       ),
+    ),
+    'path' => array(
+      'pathauto' => 0,
     ),
     'url_alias' => array(
       0 => array(
@@ -259,7 +261,7 @@ function footmali_core_uuid_features_default_terms() {
     'name' => 'Championnat d’Afrique U-20',
     'description' => '',
     'format' => 'filtered_html',
-    'weight' => 0,
+    'weight' => 11,
     'uuid' => '6cb7e280-120e-4337-91d6-73dadd5907f9',
     'vocabulary_machine_name' => 'competitions',
     'field_country' => array(
@@ -300,12 +302,18 @@ function footmali_core_uuid_features_default_terms() {
     'field_competition' => array(
       'und' => array(
         0 => array(
-          'target_id' => '096b5350-6532-4495-b89d-56a7dcc4b06f',
+          'target_id' => 'f58148f3-1b12-4a0e-bc7f-a92c16c2a2c4',
         ),
         1 => array(
+          'target_id' => '096b5350-6532-4495-b89d-56a7dcc4b06f',
+        ),
+        2 => array(
           'target_id' => 'd41653e4-7370-4c26-a295-848cd4532435',
         ),
       ),
+    ),
+    'path' => array(
+      'pathauto' => 0,
     ),
     'url_alias' => array(
       0 => array(
@@ -318,7 +326,7 @@ function footmali_core_uuid_features_default_terms() {
     'name' => 'Supercoupe de la CAF',
     'description' => '',
     'format' => 'filtered_html',
-    'weight' => 0,
+    'weight' => 6,
     'uuid' => '77ca26f7-d9ec-4cd6-9301-cf2eeebe727d',
     'vocabulary_machine_name' => 'competitions',
     'field_country' => array(
@@ -339,7 +347,7 @@ function footmali_core_uuid_features_default_terms() {
     'name' => 'Les Aigles',
     'description' => '',
     'format' => 'filtered_html',
-    'weight' => 6,
+    'weight' => 5,
     'uuid' => '8e57f774-51ed-4cca-a657-fcf53219981a',
     'vocabulary_machine_name' => 'category',
     'url_alias' => array(
@@ -382,7 +390,7 @@ function footmali_core_uuid_features_default_terms() {
     'name' => 'Coupe Du Monde',
     'description' => '',
     'format' => 'filtered_html',
-    'weight' => 0,
+    'weight' => 9,
     'uuid' => 'ae2225fc-fac7-4466-ba0f-269e39848390',
     'vocabulary_machine_name' => 'competitions',
     'field_country' => array(
@@ -435,15 +443,14 @@ function footmali_core_uuid_features_default_terms() {
     'weight' => 1,
     'uuid' => 'ba9b62d4-80a7-4a69-9f92-4930018427c8',
     'vocabulary_machine_name' => 'category',
-    'parent' => array(
-      0 => 'da1fa83b-1def-4e8c-b94f-3fcc4d4e6839',
-      1 => 'da1fa83b-1def-4e8c-b94f-3fcc4d4e6839',
-    ),
     'url_alias' => array(
       0 => array(
         'alias' => 'catégorie/league-2',
         'language' => 'und',
       ),
+    ),
+    'parent' => array(
+      0 => 'da1fa83b-1def-4e8c-b94f-3fcc4d4e6839',
     ),
   );
   $terms[] = array(
@@ -453,15 +460,14 @@ function footmali_core_uuid_features_default_terms() {
     'weight' => 0,
     'uuid' => 'c52b8a99-9ddd-413c-a11c-2551a185f0aa',
     'vocabulary_machine_name' => 'category',
-    'parent' => array(
-      0 => 'da1fa83b-1def-4e8c-b94f-3fcc4d4e6839',
-      1 => 'da1fa83b-1def-4e8c-b94f-3fcc4d4e6839',
-    ),
     'url_alias' => array(
       0 => array(
         'alias' => 'catégorie/league-1',
         'language' => 'und',
       ),
+    ),
+    'parent' => array(
+      0 => 'da1fa83b-1def-4e8c-b94f-3fcc4d4e6839',
     ),
   );
   $terms[] = array(
@@ -492,22 +498,21 @@ function footmali_core_uuid_features_default_terms() {
         ),
       ),
     ),
-    'parent' => array(
-      0 => '0c16063a-841a-44c9-984d-721d8579bee1',
-      1 => '0c16063a-841a-44c9-984d-721d8579bee1',
-    ),
     'url_alias' => array(
       0 => array(
         'alias' => 'compétitions/league-2',
         'language' => 'und',
       ),
     ),
+    'parent' => array(
+      0 => '0c16063a-841a-44c9-984d-721d8579bee1',
+    ),
   );
   $terms[] = array(
     'name' => 'Championat du Mali',
     'description' => '',
     'format' => 'filtered_html',
-    'weight' => 2,
+    'weight' => 4,
     'uuid' => 'da1fa83b-1def-4e8c-b94f-3fcc4d4e6839',
     'vocabulary_machine_name' => 'category',
     'url_alias' => array(
@@ -556,7 +561,7 @@ function footmali_core_uuid_features_default_terms() {
     'name' => 'Coupe D\'Afrique Des Nations',
     'description' => '',
     'format' => 'filtered_html',
-    'weight' => 0,
+    'weight' => 14,
     'uuid' => 'f9fcb1c0-f071-417c-9610-5708dbe709b2',
     'vocabulary_machine_name' => 'competitions',
     'field_country' => array(
@@ -577,7 +582,7 @@ function footmali_core_uuid_features_default_terms() {
     'name' => 'Jeux Africains Hommes',
     'description' => '',
     'format' => 'filtered_html',
-    'weight' => 0,
+    'weight' => 8,
     'uuid' => 'fce508f7-9bad-4555-a22e-4b14d14cde85',
     'vocabulary_machine_name' => 'competitions',
     'field_country' => array(

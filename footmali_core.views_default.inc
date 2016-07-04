@@ -25,7 +25,11 @@ function footmali_core_views_default_views() {
   $handler->display->display_options['title'] = 'L\'actualité';
   $handler->display->display_options['use_more_always'] = FALSE;
   $handler->display->display_options['access']['type'] = 'perm';
-  $handler->display->display_options['cache']['type'] = 'none';
+  $handler->display->display_options['cache']['type'] = 'time';
+  $handler->display->display_options['cache']['results_lifespan'] = '3600';
+  $handler->display->display_options['cache']['results_lifespan_custom'] = '0';
+  $handler->display->display_options['cache']['output_lifespan'] = '21600';
+  $handler->display->display_options['cache']['output_lifespan_custom'] = '0';
   $handler->display->display_options['query']['type'] = 'views_query';
   $handler->display->display_options['exposed_form']['type'] = 'basic';
   $handler->display->display_options['exposed_form']['options']['reset_button'] = TRUE;
@@ -76,7 +80,7 @@ function footmali_core_views_default_views() {
   $handler->display->display_options['fields']['body']['settings'] = array(
     'trim_length' => '140',
   );
-  /* Field: Content: Image De Profil */
+  /* Field: Content: Logo */
   $handler->display->display_options['fields']['field_image']['id'] = 'field_image';
   $handler->display->display_options['fields']['field_image']['table'] = 'field_data_field_image';
   $handler->display->display_options['fields']['field_image']['field'] = 'field_image';
@@ -137,6 +141,39 @@ function footmali_core_views_default_views() {
 
   /* Display: All Articles */
   $handler = $view->new_display('page', 'All Articles', 'all_articles');
+  $handler->display->display_options['defaults']['style_plugin'] = FALSE;
+  $handler->display->display_options['style_plugin'] = 'default';
+  $handler->display->display_options['style_options']['grouping'] = array(
+    0 => array(
+      'field' => 'created',
+      'rendered' => 1,
+      'rendered_strip' => 1,
+    ),
+  );
+  $handler->display->display_options['style_options']['row_class_special'] = FALSE;
+  $handler->display->display_options['style_options']['uses_fields'] = TRUE;
+  $handler->display->display_options['defaults']['style_options'] = FALSE;
+  $handler->display->display_options['defaults']['row_plugin'] = FALSE;
+  $handler->display->display_options['row_plugin'] = 'entity';
+  $handler->display->display_options['row_options']['view_mode'] = 'teaser';
+  $handler->display->display_options['defaults']['row_options'] = FALSE;
+  $handler->display->display_options['defaults']['filter_groups'] = FALSE;
+  $handler->display->display_options['defaults']['filters'] = FALSE;
+  /* Filter criterion: Content: Published */
+  $handler->display->display_options['filters']['status']['id'] = 'status';
+  $handler->display->display_options['filters']['status']['table'] = 'node';
+  $handler->display->display_options['filters']['status']['field'] = 'status';
+  $handler->display->display_options['filters']['status']['value'] = 1;
+  $handler->display->display_options['filters']['status']['group'] = 1;
+  $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
+  /* Filter criterion: Content: Type */
+  $handler->display->display_options['filters']['type']['id'] = 'type';
+  $handler->display->display_options['filters']['type']['table'] = 'node';
+  $handler->display->display_options['filters']['type']['field'] = 'type';
+  $handler->display->display_options['filters']['type']['value'] = array(
+    'article' => 'article',
+  );
+  $handler->display->display_options['filters']['type']['group'] = 1;
   $handler->display->display_options['path'] = 'actu';
 
   /* Display: Most Read Articles */
@@ -246,8 +283,9 @@ function footmali_core_views_default_views() {
   $handler->display->display_options['filters']['field_category_tid']['table'] = 'field_data_field_category';
   $handler->display->display_options['filters']['field_category_tid']['field'] = 'field_category_tid';
   $handler->display->display_options['filters']['field_category_tid']['value'] = array(
-    14 => '14',
-    12 => '12',
+    28 => '28',
+    25 => '25',
+    24 => '24',
   );
   $handler->display->display_options['filters']['field_category_tid']['expose']['operator_id'] = 'field_category_tid_op';
   $handler->display->display_options['filters']['field_category_tid']['expose']['label'] = 'Catégorie';
@@ -265,6 +303,284 @@ function footmali_core_views_default_views() {
   $handler->display->display_options['filters']['field_category_tid']['vocabulary'] = 'category';
   $handler->display->display_options['filters']['field_category_tid']['hierarchy'] = 1;
   $handler->display->display_options['path'] = 'league1';
+
+  /* Display: Feed */
+  $handler = $view->new_display('feed', 'Feed', 'feed_1');
+  $handler->display->display_options['defaults']['title'] = FALSE;
+  $handler->display->display_options['title'] = 'Footmali.com L\'actualité';
+  $handler->display->display_options['defaults']['group_by'] = FALSE;
+  $handler->display->display_options['defaults']['access'] = FALSE;
+  $handler->display->display_options['access']['type'] = 'none';
+  $handler->display->display_options['pager']['type'] = 'some';
+  $handler->display->display_options['pager']['options']['items_per_page'] = '50';
+  $handler->display->display_options['pager']['options']['offset'] = '0';
+  $handler->display->display_options['style_plugin'] = 'rss';
+  $handler->display->display_options['style_options']['description'] = 'Les dernières actualités sur les Aigles du Mali et le championnat Malien.';
+  $handler->display->display_options['row_plugin'] = 'rss_fields';
+  $handler->display->display_options['row_options']['title_field'] = 'title';
+  $handler->display->display_options['row_options']['link_field'] = 'path';
+  $handler->display->display_options['row_options']['description_field'] = 'body';
+  $handler->display->display_options['row_options']['creator_field'] = 'nothing';
+  $handler->display->display_options['row_options']['date_field'] = 'created';
+  $handler->display->display_options['row_options']['guid_field_options'] = array(
+    'guid_field' => 'uuid',
+    'guid_field_is_permalink' => 0,
+  );
+  $handler->display->display_options['defaults']['fields'] = FALSE;
+  /* Field: Content: Title */
+  $handler->display->display_options['fields']['title']['id'] = 'title';
+  $handler->display->display_options['fields']['title']['table'] = 'node';
+  $handler->display->display_options['fields']['title']['field'] = 'title';
+  $handler->display->display_options['fields']['title']['label'] = '';
+  $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
+  $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
+  $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['title']['link_to_node'] = FALSE;
+  /* Field: Content: Post date */
+  $handler->display->display_options['fields']['created']['id'] = 'created';
+  $handler->display->display_options['fields']['created']['table'] = 'node';
+  $handler->display->display_options['fields']['created']['field'] = 'created';
+  $handler->display->display_options['fields']['created']['label'] = '';
+  $handler->display->display_options['fields']['created']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['created']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['created']['date_format'] = 'custom';
+  $handler->display->display_options['fields']['created']['custom_date_format'] = 'l, d F Y';
+  $handler->display->display_options['fields']['created']['second_date_format'] = 'long';
+  /* Field: Content: Body */
+  $handler->display->display_options['fields']['body']['id'] = 'body';
+  $handler->display->display_options['fields']['body']['table'] = 'field_data_body';
+  $handler->display->display_options['fields']['body']['field'] = 'body';
+  $handler->display->display_options['fields']['body']['label'] = '';
+  $handler->display->display_options['fields']['body']['alter']['trim_whitespace'] = TRUE;
+  $handler->display->display_options['fields']['body']['alter']['max_length'] = '300';
+  $handler->display->display_options['fields']['body']['alter']['strip_tags'] = TRUE;
+  $handler->display->display_options['fields']['body']['alter']['trim'] = TRUE;
+  $handler->display->display_options['fields']['body']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['body']['type'] = 'text_plain';
+  $handler->display->display_options['fields']['body']['settings'] = array(
+    'trim_length' => '140',
+  );
+  /* Field: Content: Logo */
+  $handler->display->display_options['fields']['field_image']['id'] = 'field_image';
+  $handler->display->display_options['fields']['field_image']['table'] = 'field_data_field_image';
+  $handler->display->display_options['fields']['field_image']['field'] = 'field_image';
+  $handler->display->display_options['fields']['field_image']['label'] = '';
+  $handler->display->display_options['fields']['field_image']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_image']['click_sort_column'] = 'fid';
+  $handler->display->display_options['fields']['field_image']['settings'] = array(
+    'image_style' => 'article_teaser',
+    'image_link' => 'content',
+  );
+  /* Field: Content: Content UUID */
+  $handler->display->display_options['fields']['uuid']['id'] = 'uuid';
+  $handler->display->display_options['fields']['uuid']['table'] = 'node';
+  $handler->display->display_options['fields']['uuid']['field'] = 'uuid';
+  $handler->display->display_options['fields']['uuid']['label'] = '';
+  $handler->display->display_options['fields']['uuid']['element_label_colon'] = FALSE;
+  /* Field: Content: Link */
+  $handler->display->display_options['fields']['view_node']['id'] = 'view_node';
+  $handler->display->display_options['fields']['view_node']['table'] = 'views_entity_node';
+  $handler->display->display_options['fields']['view_node']['field'] = 'view_node';
+  $handler->display->display_options['fields']['view_node']['label'] = '';
+  $handler->display->display_options['fields']['view_node']['element_label_colon'] = FALSE;
+  /* Field: Content: Language */
+  $handler->display->display_options['fields']['language']['id'] = 'language';
+  $handler->display->display_options['fields']['language']['table'] = 'node';
+  $handler->display->display_options['fields']['language']['field'] = 'language';
+  $handler->display->display_options['fields']['language']['label'] = '';
+  $handler->display->display_options['fields']['language']['element_label_colon'] = FALSE;
+  /* Field: Global: Custom text */
+  $handler->display->display_options['fields']['nothing']['id'] = 'nothing';
+  $handler->display->display_options['fields']['nothing']['table'] = 'views';
+  $handler->display->display_options['fields']['nothing']['field'] = 'nothing';
+  $handler->display->display_options['fields']['nothing']['label'] = '';
+  $handler->display->display_options['fields']['nothing']['alter']['text'] = 'Footmali.com';
+  $handler->display->display_options['fields']['nothing']['element_label_colon'] = FALSE;
+  /* Field: Content: Author uid */
+  $handler->display->display_options['fields']['uid']['id'] = 'uid';
+  $handler->display->display_options['fields']['uid']['table'] = 'node';
+  $handler->display->display_options['fields']['uid']['field'] = 'uid';
+  $handler->display->display_options['fields']['uid']['label'] = '';
+  $handler->display->display_options['fields']['uid']['element_label_colon'] = FALSE;
+  /* Field: Content: Nid */
+  $handler->display->display_options['fields']['nid']['id'] = 'nid';
+  $handler->display->display_options['fields']['nid']['table'] = 'node';
+  $handler->display->display_options['fields']['nid']['field'] = 'nid';
+  $handler->display->display_options['fields']['nid']['label'] = '';
+  $handler->display->display_options['fields']['nid']['element_label_colon'] = FALSE;
+  /* Field: Content: Path */
+  $handler->display->display_options['fields']['path']['id'] = 'path';
+  $handler->display->display_options['fields']['path']['table'] = 'node';
+  $handler->display->display_options['fields']['path']['field'] = 'path';
+  $handler->display->display_options['fields']['path']['label'] = '';
+  $handler->display->display_options['fields']['path']['element_label_colon'] = FALSE;
+  /* Field: Content link */
+  $handler->display->display_options['fields']['nothing_1']['id'] = 'nothing_1';
+  $handler->display->display_options['fields']['nothing_1']['table'] = 'views';
+  $handler->display->display_options['fields']['nothing_1']['field'] = 'nothing';
+  $handler->display->display_options['fields']['nothing_1']['ui_name'] = 'Content link';
+  $handler->display->display_options['fields']['nothing_1']['label'] = '';
+  $handler->display->display_options['fields']['nothing_1']['alter']['text'] = 'http://www.footmali.com/node/[nid] ';
+  $handler->display->display_options['fields']['nothing_1']['element_label_colon'] = FALSE;
+  $handler->display->display_options['defaults']['arguments'] = FALSE;
+  $handler->display->display_options['defaults']['filter_groups'] = FALSE;
+  $handler->display->display_options['defaults']['filters'] = FALSE;
+  /* Filter criterion: Content: Published */
+  $handler->display->display_options['filters']['status']['id'] = 'status';
+  $handler->display->display_options['filters']['status']['table'] = 'node';
+  $handler->display->display_options['filters']['status']['field'] = 'status';
+  $handler->display->display_options['filters']['status']['value'] = 1;
+  $handler->display->display_options['filters']['status']['group'] = 1;
+  $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
+  /* Filter criterion: Content: Type */
+  $handler->display->display_options['filters']['type']['id'] = 'type';
+  $handler->display->display_options['filters']['type']['table'] = 'node';
+  $handler->display->display_options['filters']['type']['field'] = 'type';
+  $handler->display->display_options['filters']['type']['value'] = array(
+    'article' => 'article',
+  );
+  $handler->display->display_options['filters']['type']['group'] = 1;
+  $handler->display->display_options['path'] = 'rss.xml';
+  $handler->display->display_options['sitename_title'] = 1;
+
+  /* Display: FB Instant Article Dev */
+  $handler = $view->new_display('feed', 'FB Instant Article Dev', 'feed_2');
+  $handler->display->display_options['defaults']['title'] = FALSE;
+  $handler->display->display_options['title'] = 'Footmali.com L\'actualité';
+  $handler->display->display_options['defaults']['group_by'] = FALSE;
+  $handler->display->display_options['defaults']['access'] = FALSE;
+  $handler->display->display_options['access']['type'] = 'none';
+  $handler->display->display_options['pager']['type'] = 'some';
+  $handler->display->display_options['pager']['options']['items_per_page'] = '50';
+  $handler->display->display_options['pager']['options']['offset'] = '0';
+  $handler->display->display_options['style_plugin'] = 'rss';
+  $handler->display->display_options['style_options']['description'] = 'Les dernières actualités sur les Aigles du Mali et le championnat Malien.';
+  $handler->display->display_options['row_plugin'] = 'rss_fields';
+  $handler->display->display_options['row_options']['title_field'] = 'title';
+  $handler->display->display_options['row_options']['link_field'] = 'path';
+  $handler->display->display_options['row_options']['description_field'] = 'body';
+  $handler->display->display_options['row_options']['creator_field'] = 'nothing';
+  $handler->display->display_options['row_options']['date_field'] = 'created';
+  $handler->display->display_options['row_options']['guid_field_options'] = array(
+    'guid_field' => 'uuid',
+    'guid_field_is_permalink' => 0,
+  );
+  $handler->display->display_options['defaults']['fields'] = FALSE;
+  /* Field: Content: Title */
+  $handler->display->display_options['fields']['title']['id'] = 'title';
+  $handler->display->display_options['fields']['title']['table'] = 'node';
+  $handler->display->display_options['fields']['title']['field'] = 'title';
+  $handler->display->display_options['fields']['title']['label'] = '';
+  $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
+  $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
+  $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['title']['link_to_node'] = FALSE;
+  /* Field: Content: Post date */
+  $handler->display->display_options['fields']['created']['id'] = 'created';
+  $handler->display->display_options['fields']['created']['table'] = 'node';
+  $handler->display->display_options['fields']['created']['field'] = 'created';
+  $handler->display->display_options['fields']['created']['label'] = '';
+  $handler->display->display_options['fields']['created']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['created']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['created']['date_format'] = 'custom';
+  $handler->display->display_options['fields']['created']['custom_date_format'] = 'l, d F Y';
+  $handler->display->display_options['fields']['created']['second_date_format'] = 'long';
+  /* Field: Content: Body */
+  $handler->display->display_options['fields']['body']['id'] = 'body';
+  $handler->display->display_options['fields']['body']['table'] = 'field_data_body';
+  $handler->display->display_options['fields']['body']['field'] = 'body';
+  $handler->display->display_options['fields']['body']['label'] = '';
+  $handler->display->display_options['fields']['body']['alter']['trim_whitespace'] = TRUE;
+  $handler->display->display_options['fields']['body']['alter']['max_length'] = '300';
+  $handler->display->display_options['fields']['body']['alter']['strip_tags'] = TRUE;
+  $handler->display->display_options['fields']['body']['alter']['trim'] = TRUE;
+  $handler->display->display_options['fields']['body']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['body']['type'] = 'text_plain';
+  $handler->display->display_options['fields']['body']['settings'] = array(
+    'trim_length' => '140',
+  );
+  /* Field: Content: Logo */
+  $handler->display->display_options['fields']['field_image']['id'] = 'field_image';
+  $handler->display->display_options['fields']['field_image']['table'] = 'field_data_field_image';
+  $handler->display->display_options['fields']['field_image']['field'] = 'field_image';
+  $handler->display->display_options['fields']['field_image']['label'] = '';
+  $handler->display->display_options['fields']['field_image']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_image']['click_sort_column'] = 'fid';
+  $handler->display->display_options['fields']['field_image']['settings'] = array(
+    'image_style' => 'article_teaser',
+    'image_link' => 'content',
+  );
+  /* Field: Content: Content UUID */
+  $handler->display->display_options['fields']['uuid']['id'] = 'uuid';
+  $handler->display->display_options['fields']['uuid']['table'] = 'node';
+  $handler->display->display_options['fields']['uuid']['field'] = 'uuid';
+  $handler->display->display_options['fields']['uuid']['label'] = '';
+  $handler->display->display_options['fields']['uuid']['element_label_colon'] = FALSE;
+  /* Field: Content: Link */
+  $handler->display->display_options['fields']['view_node']['id'] = 'view_node';
+  $handler->display->display_options['fields']['view_node']['table'] = 'views_entity_node';
+  $handler->display->display_options['fields']['view_node']['field'] = 'view_node';
+  $handler->display->display_options['fields']['view_node']['label'] = '';
+  $handler->display->display_options['fields']['view_node']['element_label_colon'] = FALSE;
+  /* Field: Content: Language */
+  $handler->display->display_options['fields']['language']['id'] = 'language';
+  $handler->display->display_options['fields']['language']['table'] = 'node';
+  $handler->display->display_options['fields']['language']['field'] = 'language';
+  $handler->display->display_options['fields']['language']['label'] = '';
+  $handler->display->display_options['fields']['language']['element_label_colon'] = FALSE;
+  /* Field: Global: Custom text */
+  $handler->display->display_options['fields']['nothing']['id'] = 'nothing';
+  $handler->display->display_options['fields']['nothing']['table'] = 'views';
+  $handler->display->display_options['fields']['nothing']['field'] = 'nothing';
+  $handler->display->display_options['fields']['nothing']['label'] = '';
+  $handler->display->display_options['fields']['nothing']['alter']['text'] = 'Footmali.com';
+  $handler->display->display_options['fields']['nothing']['element_label_colon'] = FALSE;
+  /* Field: Content: Author uid */
+  $handler->display->display_options['fields']['uid']['id'] = 'uid';
+  $handler->display->display_options['fields']['uid']['table'] = 'node';
+  $handler->display->display_options['fields']['uid']['field'] = 'uid';
+  $handler->display->display_options['fields']['uid']['label'] = '';
+  $handler->display->display_options['fields']['uid']['element_label_colon'] = FALSE;
+  /* Field: Content: Nid */
+  $handler->display->display_options['fields']['nid']['id'] = 'nid';
+  $handler->display->display_options['fields']['nid']['table'] = 'node';
+  $handler->display->display_options['fields']['nid']['field'] = 'nid';
+  $handler->display->display_options['fields']['nid']['label'] = '';
+  $handler->display->display_options['fields']['nid']['element_label_colon'] = FALSE;
+  /* Field: Content: Path */
+  $handler->display->display_options['fields']['path']['id'] = 'path';
+  $handler->display->display_options['fields']['path']['table'] = 'node';
+  $handler->display->display_options['fields']['path']['field'] = 'path';
+  $handler->display->display_options['fields']['path']['label'] = '';
+  $handler->display->display_options['fields']['path']['element_label_colon'] = FALSE;
+  /* Field: Content link */
+  $handler->display->display_options['fields']['nothing_1']['id'] = 'nothing_1';
+  $handler->display->display_options['fields']['nothing_1']['table'] = 'views';
+  $handler->display->display_options['fields']['nothing_1']['field'] = 'nothing';
+  $handler->display->display_options['fields']['nothing_1']['ui_name'] = 'Content link';
+  $handler->display->display_options['fields']['nothing_1']['label'] = '';
+  $handler->display->display_options['fields']['nothing_1']['alter']['text'] = 'http://www.footmali.com/node/[nid] ';
+  $handler->display->display_options['fields']['nothing_1']['element_label_colon'] = FALSE;
+  $handler->display->display_options['defaults']['arguments'] = FALSE;
+  $handler->display->display_options['defaults']['filter_groups'] = FALSE;
+  $handler->display->display_options['defaults']['filters'] = FALSE;
+  /* Filter criterion: Content: Published */
+  $handler->display->display_options['filters']['status']['id'] = 'status';
+  $handler->display->display_options['filters']['status']['table'] = 'node';
+  $handler->display->display_options['filters']['status']['field'] = 'status';
+  $handler->display->display_options['filters']['status']['value'] = 1;
+  $handler->display->display_options['filters']['status']['group'] = 1;
+  $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
+  /* Filter criterion: Content: Type */
+  $handler->display->display_options['filters']['type']['id'] = 'type';
+  $handler->display->display_options['filters']['type']['table'] = 'node';
+  $handler->display->display_options['filters']['type']['field'] = 'type';
+  $handler->display->display_options['filters']['type']['value'] = array(
+    'article' => 'article',
+  );
+  $handler->display->display_options['filters']['type']['group'] = 1;
+  $handler->display->display_options['path'] = 'instant-article-dev.rss';
+  $handler->display->display_options['sitename_title'] = 1;
   $translatables['news'] = array(
     t('Master'),
     t('L\'actualité'),
@@ -289,6 +605,11 @@ function footmali_core_views_default_views() {
     t('<i class="order-num">[counter]</i>'),
     t('Championnat Page'),
     t('Championnat'),
+    t('Feed'),
+    t('Footmali.com L\'actualité'),
+    t('Footmali.com'),
+    t('http://www.footmali.com/node/[nid] '),
+    t('FB Instant Article Dev'),
   );
   $export['news'] = $view;
 

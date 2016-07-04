@@ -30,13 +30,24 @@ function footmali_core_image_default_styles() {
   $styles['article_page'] = array(
     'label' => 'Article Page',
     'effects' => array(
-      2 => array(
+      13 => array(
         'name' => 'image_scale_and_crop',
         'data' => array(
           'width' => 812,
           'height' => 457,
         ),
-        'weight' => 1,
+        'weight' => -10,
+      ),
+      6 => array(
+        'name' => 'canvasactions_file2canvas',
+        'data' => array(
+          'xpos' => 'right',
+          'ypos' => '10%',
+          'alpha' => 100,
+          'scale' => '',
+          'path' => 'public://footmali-watermark-65.png',
+        ),
+        'weight' => -9,
       ),
     ),
   );
@@ -75,13 +86,24 @@ function footmali_core_image_default_styles() {
   $styles['content_carrousel_large'] = array(
     'label' => 'Content Carrousel Large',
     'effects' => array(
-      10 => array(
+      12 => array(
         'name' => 'image_scale_and_crop',
         'data' => array(
           'width' => 770,
           'height' => 469,
         ),
-        'weight' => 1,
+        'weight' => -10,
+      ),
+      10 => array(
+        'name' => 'canvasactions_file2canvas',
+        'data' => array(
+          'xpos' => 'right',
+          'ypos' => '5%',
+          'alpha' => 100,
+          'scale' => '',
+          'path' => 'public://footmali-watermark-65.png',
+        ),
+        'weight' => -9,
       ),
     ),
   );
@@ -105,11 +127,11 @@ function footmali_core_image_default_styles() {
   $styles['fixture_result_team_logo'] = array(
     'label' => 'Fixture & Result Team Logo ',
     'effects' => array(
-      8 => array(
+      2 => array(
         'name' => 'image_scale_and_crop',
         'data' => array(
           'width' => 83,
-          'height' => 97,
+          'height' => 83,
         ),
         'weight' => 1,
       ),

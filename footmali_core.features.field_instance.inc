@@ -91,6 +91,122 @@ function footmali_core_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance: 'field_collection_item-field_stats-field_period'
+  $field_instances['field_collection_item-field_stats-field_period'] = array(
+    'bundle' => 'field_stats',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'number',
+        'settings' => array(
+          'decimal_separator' => '.',
+          'prefix_suffix' => TRUE,
+          'scale' => 0,
+          'thousand_separator' => '',
+        ),
+        'type' => 'number_integer',
+        'weight' => 1,
+      ),
+    ),
+    'entity_type' => 'field_collection_item',
+    'field_name' => 'field_period',
+    'label' => 'Periode',
+    'required' => 0,
+    'settings' => array(
+      'max' => '',
+      'min' => 0,
+      'prefix' => '',
+      'suffix' => '',
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 0,
+      'module' => 'number',
+      'settings' => array(),
+      'type' => 'number',
+      'weight' => 2,
+    ),
+  );
+
+  // Exported field_instance: 'field_collection_item-field_stats-field_player'
+  $field_instances['field_collection_item-field_stats-field_player'] = array(
+    'bundle' => 'field_stats',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'entityreference',
+        'settings' => array(
+          'link' => FALSE,
+        ),
+        'type' => 'entityreference_label',
+        'weight' => 2,
+      ),
+    ),
+    'entity_type' => 'field_collection_item',
+    'field_name' => 'field_player',
+    'label' => 'Joueur',
+    'options_limit' => FALSE,
+    'options_limit_empty_behaviour' => 0,
+    'options_limit_fields' => array(),
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'entityreference',
+      'settings' => array(
+        'match_operator' => 'CONTAINS',
+        'path' => '',
+        'size' => 60,
+      ),
+      'type' => 'entityreference_autocomplete',
+      'weight' => 3,
+    ),
+  );
+
+  // Exported field_instance:
+  // 'field_collection_item-field_stats-field_stat_type'
+  $field_instances['field_collection_item-field_stats-field_stat_type'] = array(
+    'bundle' => 'field_stats',
+    'default_value' => array(
+      0 => array(
+        'value' => 'goal',
+      ),
+    ),
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'list',
+        'settings' => array(),
+        'type' => 'list_default',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'field_collection_item',
+    'field_name' => 'field_stat_type',
+    'label' => 'Type',
+    'required' => 1,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(),
+      'type' => 'options_select',
+      'weight' => 1,
+    ),
+  );
+
   // Exported field_instance: 'file-image-field_file_image_alt_text'
   $field_instances['file-image-field_file_image_alt_text'] = array(
     'bundle' => 'image',
@@ -219,6 +335,16 @@ function footmali_core_field_default_field_instances() {
         'type' => 'text_default',
         'weight' => 0,
       ),
+      'fb_instant_article' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(
+          'height' => 50,
+          'width' => 'no-margin',
+        ),
+        'type' => 'text_default',
+        'weight' => 2,
+      ),
       'jquery_ajax_load' => array(
         'label' => 'above',
         'settings' => array(),
@@ -279,6 +405,12 @@ function footmali_core_field_default_field_instances() {
         'type' => 'taxonomy_term_reference_link',
         'weight' => 13,
       ),
+      'fb_instant_article' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 6,
+      ),
       'jquery_ajax_load' => array(
         'label' => 'above',
         'settings' => array(),
@@ -315,6 +447,55 @@ function footmali_core_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance: 'node-article-field_featured'
+  $field_instances['node-article-field_featured'] = array(
+    'bundle' => 'article',
+    'default_value' => array(
+      0 => array(
+        'value' => 0,
+      ),
+    ),
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'list',
+        'settings' => array(),
+        'type' => 'list_default',
+        'weight' => 15,
+      ),
+      'fb_instant_article' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 3,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_featured',
+    'label' => 'Featured',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(
+        'display_label' => 1,
+      ),
+      'type' => 'options_onoff',
+      'weight' => 6,
+    ),
+  );
+
   // Exported field_instance: 'node-article-field_image'
   $field_instances['node-article-field_image'] = array(
     'bundle' => 'article',
@@ -330,6 +511,21 @@ function footmali_core_field_default_field_instances() {
         ),
         'type' => 'image',
         'weight' => -1,
+      ),
+      'fb_instant_article' => array(
+        'label' => 'above',
+        'module' => 'image',
+        'settings' => array(
+          'caption' => 0,
+          'comments' => 0,
+          'fullscreen' => 1,
+          'image_link' => '',
+          'image_style' => '',
+          'likes' => 1,
+          'style' => 'medium',
+        ),
+        'type' => 'image',
+        'weight' => 1,
       ),
       'jquery_ajax_load' => array(
         'label' => 'above',
@@ -361,7 +557,7 @@ function footmali_core_field_default_field_instances() {
     'entity_type' => 'node',
     'field_name' => 'field_image',
     'label' => 'Image',
-    'required' => FALSE,
+    'required' => 0,
     'settings' => array(
       'alt_field' => TRUE,
       'default_image' => 0,
@@ -374,18 +570,37 @@ function footmali_core_field_default_field_instances() {
       'user_register_form' => FALSE,
     ),
     'widget' => array(
+      'active' => 1,
       'module' => 'media',
       'settings' => array(
         'allowed_schemes' => array(
-          0 => 'public',
-          1 => 'private',
+          'private' => 'private',
+          'public' => 'public',
         ),
         'allowed_types' => array(
-          0 => 'image',
+          'audio' => 0,
+          'document' => 0,
+          'image' => 'image',
+          'video' => 0,
         ),
-        'browser_plugins' => array(),
-        'preview_image_style' => 'thumbnail',
-        'progress_indicator' => 'throbber',
+        'browser_plugins' => array(
+          'media_default--media_browser_1' => 0,
+          'media_default--media_browser_my_files' => 0,
+          'media_internet' => 0,
+          'upload' => 0,
+        ),
+        'manualcrop_crop_info' => TRUE,
+        'manualcrop_default_crop_area' => TRUE,
+        'manualcrop_enable' => FALSE,
+        'manualcrop_inline_crop' => FALSE,
+        'manualcrop_instant_crop' => FALSE,
+        'manualcrop_instant_preview' => TRUE,
+        'manualcrop_keyboard' => TRUE,
+        'manualcrop_maximize_default_crop_area' => FALSE,
+        'manualcrop_require_cropping' => array(),
+        'manualcrop_styles_list' => array(),
+        'manualcrop_styles_mode' => 'include',
+        'manualcrop_thumblist' => FALSE,
       ),
       'type' => 'media_generic',
       'weight' => 3,
@@ -407,6 +622,12 @@ function footmali_core_field_default_field_instances() {
         ),
         'type' => 'entityreference_label',
         'weight' => 14,
+      ),
+      'fb_instant_article' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 5,
       ),
       'jquery_ajax_load' => array(
         'label' => 'above',
@@ -465,6 +686,12 @@ function footmali_core_field_default_field_instances() {
         'settings' => array(),
         'type' => 'taxonomy_term_reference_link',
         'weight' => 10,
+      ),
+      'fb_instant_article' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 4,
       ),
       'jquery_ajax_load' => array(
         'label' => 'above',
@@ -663,7 +890,58 @@ function footmali_core_field_default_field_instances() {
         'editable' => 0,
       ),
       'type' => 'options_select',
-      'weight' => 5,
+      'weight' => 43,
+    ),
+  );
+
+  // Exported field_instance: 'node-fixture-field_competition_group'
+  $field_instances['node-fixture-field_competition_group'] = array(
+    'bundle' => 'fixture',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'entityreference',
+        'settings' => array(
+          'link' => FALSE,
+        ),
+        'type' => 'entityreference_label',
+        'weight' => 11,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_competition_group',
+    'label' => 'Groupe',
+    'options_limit' => FALSE,
+    'options_limit_empty_behaviour' => 0,
+    'options_limit_fields' => array(),
+    'required' => 1,
+    'settings' => array(
+      'behaviors' => array(
+        'taxonomy-index' => array(
+          'status' => TRUE,
+        ),
+      ),
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'entityreference',
+      'settings' => array(
+        'match_operator' => 'STARTS_WITH',
+        'path' => '',
+        'size' => 60,
+      ),
+      'type' => 'entityreference_autocomplete',
+      'weight' => 45,
     ),
   );
 
@@ -718,7 +996,7 @@ function footmali_core_field_default_field_instances() {
       'module' => 'options',
       'settings' => array(),
       'type' => 'options_select',
-      'weight' => 6,
+      'weight' => 44,
     ),
   );
 
@@ -936,27 +1214,20 @@ function footmali_core_field_default_field_instances() {
   // Exported field_instance: 'node-fixture-field_season'
   $field_instances['node-fixture-field_season'] = array(
     'bundle' => 'fixture',
+    'default_value' => array(
+      0 => array(
+        'value' => '2015-2016',
+      ),
+    ),
     'deleted' => 0,
-    'description' => 'Sainson de recontre',
+    'description' => '',
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'date',
-        'settings' => array(
-          'format_type' => 'long',
-          'fromto' => 'both',
-          'multiple_from' => '',
-          'multiple_number' => '',
-          'multiple_to' => '',
-        ),
-        'type' => 'date_default',
-        'weight' => 6,
-      ),
-      'jquery_ajax_load' => array(
-        'label' => 'above',
+        'module' => 'list',
         'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
+        'type' => 'list_default',
+        'weight' => 10,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -968,27 +1239,59 @@ function footmali_core_field_default_field_instances() {
     'entity_type' => 'node',
     'field_name' => 'field_season',
     'label' => 'Saison',
-    'required' => 0,
+    'required' => 1,
     'settings' => array(
-      'default_value' => 'now',
-      'default_value2' => 'same',
-      'default_value_code' => '',
-      'default_value_code2' => '',
       'user_register_form' => FALSE,
     ),
     'widget' => array(
       'active' => 1,
-      'module' => 'date',
-      'settings' => array(
-        'increment' => 15,
-        'input_format' => 'm/d/Y - H:i:s',
-        'input_format_custom' => '',
-        'label_position' => 'above',
-        'text_parts' => array(),
-        'year_range' => '-3:+3',
+      'module' => 'options',
+      'settings' => array(),
+      'type' => 'options_select',
+      'weight' => 42,
+    ),
+  );
+
+  // Exported field_instance: 'node-fixture-field_stats'
+  $field_instances['node-fixture-field_stats'] = array(
+    'bundle' => 'fixture',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'field_collection',
+        'settings' => array(
+          'add' => 'Ajouter',
+          'delete' => 'Supprimer',
+          'description' => TRUE,
+          'edit' => 'Modifier',
+          'view_mode' => 'full',
+        ),
+        'type' => 'field_collection_view',
+        'weight' => 12,
       ),
-      'type' => 'date_select',
-      'weight' => 4,
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_stats',
+    'label' => 'Statistiques',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 0,
+      'module' => 'field_collection',
+      'settings' => array(),
+      'type' => 'field_collection_embed',
+      'weight' => 46,
     ),
   );
 
@@ -1015,6 +1318,19 @@ function footmali_core_field_default_field_instances() {
         'settings' => array(),
         'type' => 'hidden',
         'weight' => 0,
+      ),
+      'rss' => array(
+        'label' => 'above',
+        'module' => 'list',
+        'settings' => array(),
+        'type' => 'list_default',
+        'weight' => 1,
+      ),
+      'search_index' => array(
+        'label' => 'hidden',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 2,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -1063,6 +1379,25 @@ function footmali_core_field_default_field_instances() {
         'settings' => array(),
         'type' => 'hidden',
         'weight' => 0,
+      ),
+      'rss' => array(
+        'label' => 'above',
+        'module' => 'date',
+        'settings' => array(
+          'format_type' => 'long',
+          'fromto' => 'both',
+          'multiple_from' => '',
+          'multiple_number' => '',
+          'multiple_to' => '',
+        ),
+        'type' => 'date_default',
+        'weight' => 7,
+      ),
+      'search_index' => array(
+        'label' => 'hidden',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 6,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -1123,6 +1458,24 @@ function footmali_core_field_default_field_instances() {
         'type' => 'hidden',
         'weight' => 0,
       ),
+      'rss' => array(
+        'label' => 'above',
+        'module' => 'number',
+        'settings' => array(
+          'decimal_separator' => '.',
+          'prefix_suffix' => TRUE,
+          'scale' => 2,
+          'thousand_separator' => ' ',
+        ),
+        'type' => 'number_decimal',
+        'weight' => 8,
+      ),
+      'search_index' => array(
+        'label' => 'hidden',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 1,
+      ),
       'teaser' => array(
         'label' => 'above',
         'settings' => array(),
@@ -1172,6 +1525,26 @@ function footmali_core_field_default_field_instances() {
         'type' => 'hidden',
         'weight' => 0,
       ),
+      'rss' => array(
+        'label' => 'above',
+        'module' => 'image',
+        'settings' => array(
+          'image_link' => '',
+          'image_style' => '',
+        ),
+        'type' => 'image',
+        'weight' => 2,
+      ),
+      'search_index' => array(
+        'label' => 'hidden',
+        'module' => 'image',
+        'settings' => array(
+          'image_link' => '',
+          'image_style' => 'thumbnail',
+        ),
+        'type' => 'image',
+        'weight' => 0,
+      ),
       'teaser' => array(
         'label' => 'above',
         'settings' => array(),
@@ -1198,6 +1571,18 @@ function footmali_core_field_default_field_instances() {
       'active' => 1,
       'module' => 'image',
       'settings' => array(
+        'manualcrop_crop_info' => TRUE,
+        'manualcrop_default_crop_area' => TRUE,
+        'manualcrop_enable' => FALSE,
+        'manualcrop_inline_crop' => FALSE,
+        'manualcrop_instant_crop' => FALSE,
+        'manualcrop_instant_preview' => TRUE,
+        'manualcrop_keyboard' => TRUE,
+        'manualcrop_maximize_default_crop_area' => FALSE,
+        'manualcrop_require_cropping' => array(),
+        'manualcrop_styles_list' => array(),
+        'manualcrop_styles_mode' => 'include',
+        'manualcrop_thumblist' => FALSE,
         'preview_image_style' => 'large',
         'progress_indicator' => 'throbber',
       ),
@@ -1225,6 +1610,19 @@ function footmali_core_field_default_field_instances() {
         'settings' => array(),
         'type' => 'hidden',
         'weight' => 0,
+      ),
+      'rss' => array(
+        'label' => 'above',
+        'module' => 'node_reference',
+        'settings' => array(),
+        'type' => 'node_reference_default',
+        'weight' => 6,
+      ),
+      'search_index' => array(
+        'label' => 'hidden',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 5,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -1272,6 +1670,19 @@ function footmali_core_field_default_field_instances() {
         'settings' => array(),
         'type' => 'hidden',
         'weight' => 0,
+      ),
+      'rss' => array(
+        'label' => 'above',
+        'module' => 'taxonomy',
+        'settings' => array(),
+        'type' => 'taxonomy_term_reference_link',
+        'weight' => 5,
+      ),
+      'search_index' => array(
+        'label' => 'hidden',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 4,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -1321,6 +1732,24 @@ function footmali_core_field_default_field_instances() {
         'type' => 'hidden',
         'weight' => 0,
       ),
+      'rss' => array(
+        'label' => 'above',
+        'module' => 'number',
+        'settings' => array(
+          'decimal_separator' => '.',
+          'prefix_suffix' => TRUE,
+          'scale' => 0,
+          'thousand_separator' => ' ',
+        ),
+        'type' => 'number_integer',
+        'weight' => 3,
+      ),
+      'search_index' => array(
+        'label' => 'hidden',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 3,
+      ),
       'teaser' => array(
         'label' => 'above',
         'settings' => array(),
@@ -1351,27 +1780,16 @@ function footmali_core_field_default_field_instances() {
   // Exported field_instance: 'node-squad-field_season'
   $field_instances['node-squad-field_season'] = array(
     'bundle' => 'squad',
+    'default_value' => NULL,
     'deleted' => 0,
-    'description' => 'Saison d \'effectif',
+    'description' => '',
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'date',
-        'settings' => array(
-          'format_type' => 'long',
-          'fromto' => 'both',
-          'multiple_from' => '',
-          'multiple_number' => '',
-          'multiple_to' => '',
-        ),
-        'type' => 'date_default',
-        'weight' => 3,
-      ),
-      'jquery_ajax_load' => array(
-        'label' => 'above',
+        'module' => 'list',
         'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
+        'type' => 'list_default',
+        'weight' => 6,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -1385,25 +1803,14 @@ function footmali_core_field_default_field_instances() {
     'label' => 'Saison',
     'required' => 1,
     'settings' => array(
-      'default_value' => 'now',
-      'default_value2' => 'same',
-      'default_value_code' => '',
-      'default_value_code2' => '',
       'user_register_form' => FALSE,
     ),
     'widget' => array(
       'active' => 1,
-      'module' => 'date',
-      'settings' => array(
-        'increment' => 15,
-        'input_format' => 'm/d/Y - H:i:s',
-        'input_format_custom' => '',
-        'label_position' => 'above',
-        'text_parts' => array(),
-        'year_range' => '-3:+3',
-      ),
-      'type' => 'date_select',
-      'weight' => 2,
+      'module' => 'options',
+      'settings' => array(),
+      'type' => 'options_select',
+      'weight' => 1,
     ),
   );
 
@@ -1499,7 +1906,7 @@ function footmali_core_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'node_reference_autocomplete',
-      'weight' => 1,
+      'weight' => 2,
     ),
   );
 
@@ -1546,7 +1953,7 @@ function footmali_core_field_default_field_instances() {
       'module' => 'options',
       'settings' => array(),
       'type' => 'options_select',
-      'weight' => 2,
+      'weight' => 3,
     ),
   );
 
@@ -1585,7 +1992,7 @@ function footmali_core_field_default_field_instances() {
     'required' => 0,
     'settings' => array(
       'alt_field' => 0,
-      'default_image' => 0,
+      'default_image' => 504,
       'file_directory' => 'teams/logo',
       'file_extensions' => 'png gif jpg jpeg',
       'max_filesize' => '',
@@ -1598,11 +2005,23 @@ function footmali_core_field_default_field_instances() {
       'active' => 1,
       'module' => 'image',
       'settings' => array(
+        'manualcrop_crop_info' => TRUE,
+        'manualcrop_default_crop_area' => TRUE,
+        'manualcrop_enable' => FALSE,
+        'manualcrop_inline_crop' => FALSE,
+        'manualcrop_instant_crop' => FALSE,
+        'manualcrop_instant_preview' => TRUE,
+        'manualcrop_keyboard' => TRUE,
+        'manualcrop_maximize_default_crop_area' => FALSE,
+        'manualcrop_require_cropping' => array(),
+        'manualcrop_styles_list' => array(),
+        'manualcrop_styles_mode' => 'include',
+        'manualcrop_thumblist' => FALSE,
         'preview_image_style' => 'team_logo',
         'progress_indicator' => 'throbber',
       ),
       'type' => 'image_image',
-      'weight' => 1,
+      'weight' => 2,
     ),
   );
 
@@ -1654,7 +2073,47 @@ function footmali_core_field_default_field_instances() {
       'module' => 'options',
       'settings' => array(),
       'type' => 'options_select',
-      'weight' => 4,
+      'weight' => 5,
+    ),
+  );
+
+  // Exported field_instance: 'node-team-field_short_name'
+  $field_instances['node-team-field_short_name'] = array(
+    'bundle' => 'team',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 5,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_short_name',
+    'label' => 'Nom Court',
+    'required' => 0,
+    'settings' => array(
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'size' => 60,
+      ),
+      'type' => 'text_textfield',
+      'weight' => 1,
     ),
   );
 
@@ -1696,7 +2155,7 @@ function footmali_core_field_default_field_instances() {
       'module' => 'options',
       'settings' => array(),
       'type' => 'options_buttons',
-      'weight' => 3,
+      'weight' => 4,
     ),
   );
 
@@ -1748,6 +2207,49 @@ function footmali_core_field_default_field_instances() {
       ),
       'type' => 'text_textarea_with_summary',
       'weight' => 2,
+    ),
+  );
+
+  // Exported field_instance: 'node-video-field_featured'
+  $field_instances['node-video-field_featured'] = array(
+    'bundle' => 'video',
+    'default_value' => array(
+      0 => array(
+        'value' => 0,
+      ),
+    ),
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'list',
+        'settings' => array(),
+        'type' => 'list_default',
+        'weight' => 2,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_featured',
+    'label' => 'Featured',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(
+        'display_label' => 1,
+      ),
+      'type' => 'options_onoff',
+      'weight' => 3,
     ),
   );
 
@@ -1900,7 +2402,7 @@ function footmali_core_field_default_field_instances() {
         'module' => 'taxonomy',
         'settings' => array(),
         'type' => 'taxonomy_term_reference_link',
-        'weight' => 3,
+        'weight' => 4,
       ),
     ),
     'entity_type' => 'user',
@@ -1918,7 +2420,7 @@ function footmali_core_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'taxonomy_autocomplete',
-      'weight' => 6,
+      'weight' => 10,
     ),
   );
 
@@ -1934,7 +2436,7 @@ function footmali_core_field_default_field_instances() {
         'module' => 'node_reference',
         'settings' => array(),
         'type' => 'node_reference_default',
-        'weight' => 1,
+        'weight' => 3,
       ),
     ),
     'entity_type' => 'user',
@@ -1953,7 +2455,7 @@ function footmali_core_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'node_reference_autocomplete',
-      'weight' => 5,
+      'weight' => 8,
     ),
   );
 
@@ -1969,7 +2471,7 @@ function footmali_core_field_default_field_instances() {
         'module' => 'node_reference',
         'settings' => array(),
         'type' => 'node_reference_default',
-        'weight' => 0,
+        'weight' => 2,
       ),
     ),
     'entity_type' => 'user',
@@ -1988,7 +2490,7 @@ function footmali_core_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'node_reference_autocomplete',
-      'weight' => 4,
+      'weight' => 5,
     ),
   );
 
@@ -2000,7 +2502,7 @@ function footmali_core_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'default' => array(
-        'label' => 'above',
+        'label' => 'inline',
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_default',
@@ -2022,7 +2524,7 @@ function footmali_core_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'text_textfield',
-      'weight' => 0,
+      'weight' => 1,
     ),
   );
 
@@ -2034,7 +2536,7 @@ function footmali_core_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'default' => array(
-        'label' => 'above',
+        'label' => 'inline',
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_default',
@@ -2056,7 +2558,7 @@ function footmali_core_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'text_textfield',
-      'weight' => 1,
+      'weight' => 2,
     ),
   );
 
@@ -2073,7 +2575,9 @@ function footmali_core_field_default_field_instances() {
   t('Favorite Competitons');
   t('Favorite Players');
   t('Favorite Teams');
+  t('Featured');
   t('First Name');
+  t('Groupe');
   t('Image');
   t('Image De Profil');
   t('Joueur');
@@ -2086,24 +2590,26 @@ function footmali_core_field_default_field_instances() {
   t('Matchs Joué');
   t('More Tags');
   t('Nationalité');
+  t('Nom Court');
   t('Numéro');
   t('Other Club');
   t('Pays');
   t('Pays d\'origine de l\'équipe');
   t('Pays de la compétition');
+  t('Periode');
   t('Poids');
   t('Poste');
-  t('Sainson de recontre');
   t('Saisissez une liste de mots séparés par des virgules pour décrire votre contenu.');
   t('Saison');
-  t('Saison d \'effectif');
   t('Score Équipe Domicile');
   t('Score Équipe Extérieur');
+  t('Statistiques');
   t('Tags');
   t('Taille');
   t('Title Text');
   t('Title text is used in the tool tip when a user hovers their mouse over the image. Adding title text makes it easier to understand the context of an image and improves usability.');
   t('Transférer une image pour accompagner cet article.');
+  t('Type');
   t('Video');
   t('Équipe');
   t('Équipe  Extérieur');

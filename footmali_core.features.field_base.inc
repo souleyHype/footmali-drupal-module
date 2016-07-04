@@ -135,6 +135,41 @@ function footmali_core_field_default_field_bases() {
     'type' => 'entityreference',
   );
 
+  // Exported field_base: 'field_competition_group'
+  $field_bases['field_competition_group'] = array(
+    'active' => 1,
+    'cardinality' => 1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_competition_group',
+    'indexes' => array(
+      'target_id' => array(
+        0 => 'target_id',
+      ),
+    ),
+    'locked' => 0,
+    'module' => 'entityreference',
+    'settings' => array(
+      'handler' => 'base',
+      'handler_settings' => array(
+        'behaviors' => array(
+          'views-select-list' => array(
+            'status' => 0,
+          ),
+        ),
+        'sort' => array(
+          'type' => 'none',
+        ),
+        'target_bundles' => array(
+          'competition_groups' => 'competition_groups',
+        ),
+      ),
+      'target_type' => 'taxonomy_term',
+    ),
+    'translatable' => 0,
+    'type' => 'entityreference',
+  );
+
   // Exported field_base: 'field_competition_round'
   $field_bases['field_competition_round'] = array(
     'active' => 1,
@@ -600,6 +635,31 @@ function footmali_core_field_default_field_bases() {
     'type' => 'node_reference',
   );
 
+  // Exported field_base: 'field_featured'
+  $field_bases['field_featured'] = array(
+    'active' => 1,
+    'cardinality' => 1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_featured',
+    'indexes' => array(
+      'value' => array(
+        0 => 'value',
+      ),
+    ),
+    'locked' => 0,
+    'module' => 'list',
+    'settings' => array(
+      'allowed_values' => array(
+        0 => '',
+        1 => '',
+      ),
+      'allowed_values_function' => '',
+    ),
+    'translatable' => 0,
+    'type' => 'list_boolean',
+  );
+
   // Exported field_base: 'field_file_image_alt_text'
   $field_bases['field_file_image_alt_text'] = array(
     'active' => 1,
@@ -893,6 +953,55 @@ function footmali_core_field_default_field_bases() {
     'type' => 'node_reference',
   );
 
+  // Exported field_base: 'field_period'
+  $field_bases['field_period'] = array(
+    'active' => 1,
+    'cardinality' => 1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_period',
+    'indexes' => array(),
+    'locked' => 0,
+    'module' => 'number',
+    'settings' => array(),
+    'translatable' => 0,
+    'type' => 'number_integer',
+  );
+
+  // Exported field_base: 'field_player'
+  $field_bases['field_player'] = array(
+    'active' => 1,
+    'cardinality' => 1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_player',
+    'indexes' => array(
+      'target_id' => array(
+        0 => 'target_id',
+      ),
+    ),
+    'locked' => 0,
+    'module' => 'entityreference',
+    'settings' => array(
+      'handler' => 'views',
+      'handler_settings' => array(
+        'behaviors' => array(
+          'views-select-list' => array(
+            'status' => 0,
+          ),
+        ),
+        'view' => array(
+          'args' => array(),
+          'display_name' => 'entityreference_1',
+          'view_name' => 'players_select_dropdown',
+        ),
+      ),
+      'target_type' => 'node',
+    ),
+    'translatable' => 0,
+    'type' => 'entityreference',
+  );
+
   // Exported field_base: 'field_position'
   $field_bases['field_position'] = array(
     'active' => 1,
@@ -926,26 +1035,43 @@ function footmali_core_field_default_field_bases() {
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_season',
-    'indexes' => array(),
-    'locked' => 0,
-    'module' => 'date',
-    'settings' => array(
-      'cache_count' => 4,
-      'cache_enabled' => 0,
-      'granularity' => array(
-        'day' => 0,
-        'hour' => 0,
-        'minute' => 0,
-        'month' => 0,
-        'second' => 0,
-        'year' => 'year',
+    'indexes' => array(
+      'value' => array(
+        0 => 'value',
       ),
-      'timezone_db' => '',
-      'todate' => '',
-      'tz_handling' => 'none',
+    ),
+    'locked' => 0,
+    'module' => 'list',
+    'settings' => array(
+      'allowed_values' => array(
+        '2015-2016' => '2015-2016',
+        '2014-2015' => '2014-2015',
+      ),
+      'allowed_values_function' => '',
     ),
     'translatable' => 0,
-    'type' => 'datetime',
+    'type' => 'list_text',
+  );
+
+  // Exported field_base: 'field_short_name'
+  $field_bases['field_short_name'] = array(
+    'active' => 1,
+    'cardinality' => 1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_short_name',
+    'indexes' => array(
+      'format' => array(
+        0 => 'format',
+      ),
+    ),
+    'locked' => 0,
+    'module' => 'text',
+    'settings' => array(
+      'max_length' => 10,
+    ),
+    'translatable' => 0,
+    'type' => 'text',
   );
 
   // Exported field_base: 'field_squad_player'
@@ -965,16 +1091,17 @@ function footmali_core_field_default_field_bases() {
     'settings' => array(
       'referenceable_types' => array(
         'article' => 0,
+        'blog' => 0,
         'fixture' => 0,
-        'page' => 0,
         'player' => 'player',
         'squad' => 0,
         'team' => 0,
+        'video' => 0,
       ),
       'view' => array(
         'args' => array(),
-        'display_name' => '',
-        'view_name' => '',
+        'display_name' => 'references_1',
+        'view_name' => 'players_select_dropdown',
       ),
     ),
     'translatable' => 0,
@@ -1050,6 +1177,53 @@ function footmali_core_field_default_field_bases() {
     ),
     'translatable' => 0,
     'type' => 'node_reference',
+  );
+
+  // Exported field_base: 'field_stat_type'
+  $field_bases['field_stat_type'] = array(
+    'active' => 1,
+    'cardinality' => 1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_stat_type',
+    'indexes' => array(
+      'value' => array(
+        0 => 'value',
+      ),
+    ),
+    'locked' => 0,
+    'module' => 'list',
+    'settings' => array(
+      'allowed_values' => array(
+        'goal' => 'but',
+        'assist' => 'passe décisive',
+      ),
+      'allowed_values_function' => '',
+    ),
+    'translatable' => 0,
+    'type' => 'list_text',
+  );
+
+  // Exported field_base: 'field_stats'
+  $field_bases['field_stats'] = array(
+    'active' => 1,
+    'cardinality' => -1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_stats',
+    'indexes' => array(
+      'revision_id' => array(
+        0 => 'revision_id',
+      ),
+    ),
+    'locked' => 0,
+    'module' => 'field_collection',
+    'settings' => array(
+      'hide_blank_items' => 1,
+      'path' => '',
+    ),
+    'translatable' => 0,
+    'type' => 'field_collection',
   );
 
   // Exported field_base: 'field_tags'
